@@ -27,12 +27,12 @@ jobs:
           pnpm i
           pnpm run build:lib
 
-      - name: Publish
-        working-directory: packages/devui-vue/build
-        run: |
-          npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        # - name: Publish
+        #   working-directory: packages/devui-vue/build
+        #   run: |
+        #     npm publish
+        # env:
+        #   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
